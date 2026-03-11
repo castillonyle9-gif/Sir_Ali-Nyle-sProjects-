@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Brew — Page Layout</title>
+
+  <style>
+    :root {
+      --color-bg: #faf7f2;
+      --color-surface: #ffffff;
+      --color-primary: #4a2c0a;
+      --color-accent: #c7692a;
+      --color-text: #2d2015;
+      --color-muted: #7a6552;
+      --color-border: #e8ddd0;
+
+      --font-heading: Georgia, serif;
+      --font-body: Verdana, sans-serif;
+
+      --max-width: 1100px;
+      --sidebar-width: 280px;
+      --gap: 32px;
+
+      --radius: 8px;
+      --transition: 0.2s ease;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-heading);
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 28.8px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: #a3511e;
+    }
+
+    a:focus {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+
+    .site-header {
+      background-color: var(--color-primary);
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .site-title {
+      color: #fff;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.96px;
+      text-transform: uppercase;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--transition);
+    }
+
+    .nav-link:hover {
+      color: #fff;
+      border-bottom-color: var(--color-accent);
+    }
+
+    .nav-link:visited {
+      color: #fff;
+    }
+
+    .hero {
+      background-color: var(--color-primary);
+      background-image: linear-gradient(135deg, #4a2c0a 0%, #7a4820 100%);
+      color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-heading {
+      color: #fff;
+      font-size: 35.2px;
+      margin-bottom: 16px;
+    }
+
+    .hero-text {
+      color: #e8ddd0;
+      font-size: 17.6px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 24px;
+      background-color: var(--color-accent);
+      color: #fff;
+      font-size: 13.6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.96px;
+      border-radius: 4px;
+      transition: background-color var(--transition), transform var(--transition);
+    }
+
+    .btn:hover {
+      background-color: #a3511e;
+      color: #fff;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-accent);
+      border: 2px solid var(--color-accent);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--color-accent);
+      color: #fff;
+    }
+
+    .page-wrapper {
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      grid-template-areas: "main sidebar";
+      gap: var(--gap);
+      padding-top: 48px;
+      padding-bottom: 64px;
+    }
+
+    .main-content {
+      grid-area: main;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+    }
+
+    .section-heading {
+      font-size: 24px;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--color-accent);
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    .card {
+      flex: 1 1 calc(50% - 16px);
+      min-width: 220px;
+
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(74, 44, 10, 0.06);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(74, 44, 10, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .card-tag {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: #fff;
+      font-size: 11.2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      padding: 2px 10px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 17.6px;
+      margin-bottom: 4px;
+    }
+
+    .card-meta {
+      font-size: 12.48px;
+      color: var(--color-muted);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 14.4px;
+      margin-bottom: 16px;
+    }
+
+    .widget {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .widget-highlight {
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+
+    .widget-title {
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    .widget-highlight .widget-title {
+      color: #fff;
+    }
+
+    .widget p {
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-bottom: 12px;
+    }
+
+    .widget-highlight p {
+      color: #e8ddd0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background-color: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 99px;
+      padding: 3px 12px;
+      font-size: 12.48px;
+      color: var(--color-muted);
+    }
+
+    .site-footer {
+      background-color: var(--color-primary);
+      color: #e8ddd0;
+      text-align: center;
+      padding: 28px 0;
+      font-size: 13.6px;
+    }
+
+    @media (max-width: 768px) {
+
+      .page-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "main"
+          "sidebar";
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+
+      .hero-heading {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero-heading {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">The Daily Brew</h1>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#articles">Articles</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <h2 class="hero-heading">Welcome to The Daily Brew</h2>
+      <p class="hero-text">Specialty coffee knowledge — from bean origins to brewing methods.</p>
+      <a class="btn" href="#articles">Read Articles</a>
+    </div>
+  </section>
+
+  <div class="container page-wrapper" id="articles">
+
+    <main class="main-content">
+      <h2 class="section-heading">Latest Articles</h2>
+
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-tag">Brewing</div>
+          <h3 class="card-title">The Art of the Pour Over</h3>
+          <p class="card-meta">14 February 2026</p>
+          <p>The pour over method gives you full control over every variable — water temperature, pour rate, and grind
+            size.</p>
+          <a class="btn btn-outline" href="#">Read More</a>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Origins</div>
+          <h3 class="card-title">Understanding Coffee Origins</h3>
+          <p class="card-meta">30 January 2026</p>
+          <p>Where a coffee is grown has an enormous impact on its flavour. Ethiopian coffees are famous for floral and
+            fruity notes.</p>
+          <a class="btn btn-outline" href="#">Read More</a>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Equipment</div>
+          <h3 class="card-title">Choosing Your First Grinder</h3>
+          <p class="card-meta">10 January 2026</p>
+          <p>A good grinder is the most important investment you can make. Burr grinders produce a far more consistent
+            grind.</p>
+          <a class="btn btn-outline" href="#">Read More</a>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Recipes</div>
+          <h3 class="card-title">Cold Brew at Home</h3>
+          <p class="card-meta">5 January 2026</p>
+          <p>Cold brew is surprisingly simple. Steep coarse ground coffee in cold water for 12–24 hours, then strain and
+            serve.</p>
+          <a class="btn btn-outline" href="#">Read More</a>
+        </article>
+
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="widget">
+        <h2 class="widget-title">About the Blog</h2>
+        <p>Founded in 2022, The Daily Brew shares specialty coffee knowledge with enthusiasts at every level.</p>
+      </div>
+
+      <div class="widget">
+        <h2 class="widget-title">Popular Tags</h2>
+        <ul class="tag-list">
+          <li class="tag">Pour Over</li>
+          <li class="tag">Espresso</li>
+          <li class="tag">Origins</li>
+          <li class="tag">Cold Brew</li>
+          <li class="tag">Grinders</li>
+        </ul>
+      </div>
+
+      <div class="widget widget-highlight">
+        <h2 class="widget-title">Newsletter</h2>
+        <p>Get new articles in your inbox every week.</p>
+        <a class="btn" href="mailto:subscribe@dailybrew.com">Subscribe</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 The Daily Brew. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
