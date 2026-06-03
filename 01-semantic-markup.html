@@ -1,108 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooking with Andy!</title>
+    <style>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Daily Brew — Semantic Markup</title>
-</head>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<body>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #000;
+        background-color: #fff;
+      }
 
-  <header>
-    <h1>The Daily Brew</h1>
-    <p>A blog about coffee, culture, and craft.</p>
+      header {
+        background-color: #d3d3d3;
+        padding: 15px 20px;
+      }
 
+      header h1 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
 
-    <nav aria-label="Primary navigation">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#articles">Articles</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+      header nav a {
+        color: blue;
+        text-decoration: underline;
+        margin-right: 2px;
+        font-size: 0.95em;
+      }
 
-  <h2>Welcome to The Daily Brew</h2>
-  <p>
-    Explore the world of specialty coffee — from bean origins to
-    brewing methods. Whether you're a beginner or a seasoned barista,
-    there's something here for you.
-  </p>
+      main {
+        padding: 15px 20px;
+      }
 
-  <h2>Latest Articles</h2>
+      h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 15px 0 10px 0;
+      }
 
-  <h3>The Art of the Pour Over</h3>
+      p {
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
 
-  <p>Published on 14 February 2026</p>
+      ul {
+        list-style: disc;
+        padding-left: 35px;
+        margin-bottom: 15px;
+        line-height: 1.8;
+      }
 
-  <p>
-    The pour over method is one of the most <strong>precise</strong> and
-    <em>rewarding</em> ways to brew coffee at home. It gives you full
-    control over every variable — water temperature, pour rate, and grind size.
-  </p>
+      aside {
+        background-color: #d3d3d3;
+        padding: 20px 20px;
+        margin: 15px 0;
+      }
 
-    <h4>Quick Tip</h4>
-    <p>
-      Use water that is 93–96°C for optimal extraction.
-      Boiling water can over-extract and make your cup bitter.
-    </p>
+      aside p {
+        margin: 0;
+        line-height: 1.6;
+      }
 
-  <p>
-    Start with a medium-fine grind, pre-wet your filter, and pour in
-    slow, controlled spirals. The total brew time should be around
-    3 minutes.
-  </p>
+      ol {
+        padding-left: 25px;
+        line-height: 1.9;
+      }
 
-  <p>Written by
-  <address>Sara Nguyen</address>
+      ol li {
+        margin-bottom: 4px;
+      }
 
-  <h3>Understanding Coffee Origins</h3>
-  <p>Published on <time datetime="2026-01-30">30 January 2026</time></p>
+      footer {
+        background-color: #d3d3d3;
+        padding: 20px 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
 
-  Where a coffee is grown has an <em>enormous</em> impact on its flavour.
-  Ethiopian coffees are famous for their floral and fruity notes, while
-  Colombian beans tend to be <strong>balanced and nutty</strong>.
-  </p>
+    <header>
+      <h1>Cooking with Andy!</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Blog</a>
+        <a href="#">Browse</a>
+      </nav>
+    </header>
 
-  <h4>Top 3 Origins for Beginners</h4>
-  <ol>
-    <li>Ethiopia — bright, fruity, complex</li>
-    <li>Colombia — smooth, balanced, approachable</li>
-    <li>Brazil — chocolatey, low acidity, easy drinking</li>
-  </ol>
+    <main>
 
-  <p>Written by
-  <address>James Okafor</address>
-  </p>
+      <article>
 
-  <h2>About This Blog</h2>
-  <p>
-    The Daily Brew was founded in 2022 by two
-    coffee enthusiasts who wanted to share their passion for specialty coffee
-    with the world.
-  </p>
+        <h2>Chocolate Chip Cookies</h2>
+        <p>Delicious homemade cookies with gooey chocolate chips!</p>
 
-  <h2>Popular Tags</h2>
-  <ul>
-    <li>Pour Over</li>
-    <li>Espresso</li>
-    <li>Origins</li>
-    <li>Brewing Tips</li>
-  </ul>
+        <section>
+          <h2>Ingredients</h2>
+          <ul>
+            <li>2 1/4 cups flour</li>
+            <li>1/2 teaspoon baking soda</li>
+            <li>1 cup unsalted butter, softened</li>
+            <li>1/2 cup granulated sugar</li>
+            <li>1 cup packed brown sugar</li>
+            <li>1 teaspoon vanilla extract</li>
+            <li>2 large eggs</li>
+            <li>2 cups semisweet chocolate chips</li>
+          </ul>
 
-  <p>2026 The Daily Brew. All rights reserved.</p>
-  <address>
-    Contact us at <a href="mailto:hello@dailybrew.com" style="color:#f0d9c0;">hello@dailybrew.com</a>
-  </address>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#articles">Articles</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
-</body>
+          <aside>
+            <p>
+              If you don't have eggs, you can use a suitable egg substitute like
+              applesauce, mashed bananas, or yogurt. Use 1/4 cup of the
+              substitute for each egg in the recipe.
+            </p>
+          </aside>
+        </section>
 
+        <section>
+          <h2>Instructions</h2>
+          <ol>
+            <li>Preheat your oven to 190°C.</li>
+            <li>In a small bowl, mix the flour and baking soda. Set aside.</li>
+            <li>
+              In a large mixing bowl, cream together the softened butter,
+              granulated sugar, brown sugar, and vanilla extract until smooth.
+            </li>
+            <li>Add the eggs one at a time, beating well after each addition.</li>
+            <li>
+              Gradually add the flour mixture to the wet ingredients, mixing
+              until well combined.
+            </li>
+            <li>Stir in the chocolate chips.</li>
+            <li>Drop rounded tablespoons of dough onto ungreased baking sheets.</li>
+            <li>
+              Bake in the oven for 8-10 minutes or until the edges are golden
+              brown.
+            </li>
+            <li>
+              Allow the cookies to cool on the baking sheets for a few minutes
+              before transferring them to wire racks to cool completely.
+            </li>
+          </ol>
+        </section>
+
+      </article>
+    </main>
+
+    <footer>
+      <p>Cooking With Andy &copy; 2024</p>
+    </footer>
+
+  </body>
 </html>
